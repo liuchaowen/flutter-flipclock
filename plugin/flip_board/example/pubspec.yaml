@@ -1,0 +1,36 @@
+name: flip_board_example
+description: FlipBoard examples
+publish_to: "none"
+version: 1.0.0
+
+environment:
+  sdk: ">=2.12.0 <4.0.0"
+
+dependencies:
+  async: ^2.11.0
+  flip_board:
+    path: ../
+    
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^2.0.2
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets: 
+    - assets/horizontal/bird.png
+    - assets/horizontal/butterfly.png
+    - assets/horizontal/dart-frog.jpg
+    - assets/horizontal/flower.png
+    - assets/horizontal/sea.png
+    - assets/vertical/van-Gogh_Cafe-Terrace-at-Night.jpg
+    - assets/vertical/van-Gogh_Irises.jpg
+    - assets/vertical/van-Gogh_Self-Portrait-1.jpg
+    - assets/vertical/van-Gogh_Self-Portrait-2.jpg
+    - assets/vertical/van-Gogh_Starry-Night.jpg
+    - assets/vertical/van-Gogh_The-Bedroom.jpg
+    - assets/vertical/van-Gogh_The-Factory.jpg

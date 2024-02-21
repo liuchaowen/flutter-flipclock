@@ -31,6 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flip_board: 
+    path: ./plugin/flip_board
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
