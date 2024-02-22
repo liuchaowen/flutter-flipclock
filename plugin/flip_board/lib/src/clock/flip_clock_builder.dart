@@ -200,7 +200,7 @@ class FlipClockBuilder {
         ],
       );
 
-  Widget buildSeparator2(BuildContext context) => Padding(
+  Widget buildSeparatorEmpty(BuildContext context) => Padding(
         padding: digitSpacing,
         child: Container(
           decoration: BoxDecoration(
@@ -210,15 +210,6 @@ class FlipClockBuilder {
           width: separatorWidth,
           height: height,
           alignment: Alignment.center,
-          child: Text(
-            '',
-            style: TextStyle(
-              fontSize: 80,
-              fontWeight: FontWeight.bold,
-              color: separatorColor ?? Theme.of(context).colorScheme.onPrimary,
-              decoration: TextDecoration.none,
-            ),
-          ),
         ),
       );
 }

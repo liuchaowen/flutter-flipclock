@@ -8,10 +8,12 @@ void main() {
   SystemChrome.setPreferredOrientations(
           [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight])
       .then((_) {
-    runApp(const MyApp());
+    //隐藏Android底部的虚拟返回键与顶部状态栏
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+    Future.delayed(const Duration(seconds: 2), () {
+      runApp(const MyApp());
+    });
   });
-  //隐藏Android底部的虚拟返回键与顶部状态栏
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 }
 
 class MyApp extends StatelessWidget {
@@ -30,4 +32,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
