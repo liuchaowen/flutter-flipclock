@@ -3,7 +3,13 @@
 把废弃手机当家庭时钟。
 
 效果：
+
+android
 [![image](shotcut.png)](https://raw.githubusercontent.com/liuchaowen/flutter-flipclock/main/shotcut.png)
+
+web
+
+[https://project.xlap.top/flipclock/](https://project.xlap.top/flipclock/)
 
 ## Getting Started
 
