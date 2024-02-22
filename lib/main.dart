@@ -10,9 +10,8 @@ void main() {
       .then((_) {
     runApp(const MyApp());
   });
-  //隐藏Android底部的虚拟返回键
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-      overlays: [SystemUiOverlay.top]);
+  //隐藏Android底部的虚拟返回键与顶部状态栏
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 }
 
 class MyApp extends StatelessWidget {

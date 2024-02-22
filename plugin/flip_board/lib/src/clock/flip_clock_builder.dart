@@ -211,9 +211,10 @@ class FlipClockBuilder {
           height: height,
           alignment: Alignment.center,
           child: Text(
-            ':',
+            '',
             style: TextStyle(
-              fontSize: digitSize - 4,
+              fontSize: 80,
+              fontWeight: FontWeight.bold,
               color: separatorColor ?? Theme.of(context).colorScheme.onPrimary,
               decoration: TextDecoration.none,
             ),
