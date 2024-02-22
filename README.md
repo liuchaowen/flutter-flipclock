@@ -1,6 +1,9 @@
 # flutter_flipclock
 
-A new Flutter project.
+把废弃手机当家庭时钟。
+
+效果：
+![image](shotcut.png)
 
 ## Getting Started
 
