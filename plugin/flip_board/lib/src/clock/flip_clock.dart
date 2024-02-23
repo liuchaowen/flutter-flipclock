@@ -39,6 +39,7 @@ class FlipClock extends StatelessWidget {
     this.showSeconds = true,
     Curve? flipCurve,
     Color? digitColor,
+    Color? digitShadowColor,
     Color? backgroundColor,
     double? separatorWidth,
     Color? separatorColor,
@@ -66,6 +67,7 @@ class FlipClock extends StatelessWidget {
                   ? FlipWidget.bounceFastFlip
                   : FlipWidget.defaultFlip),
           digitColor: digitColor,
+          digitShadowColor: digitShadowColor,
           backgroundColor: backgroundColor,
           separatorWidth: separatorWidth ?? width / 3.0,
           separatorColor: separatorColor,

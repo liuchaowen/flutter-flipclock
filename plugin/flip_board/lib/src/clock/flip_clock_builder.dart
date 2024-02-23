@@ -16,6 +16,7 @@ class FlipClockBuilder {
     required this.flipDirection,
     this.flipCurve,
     this.digitColor,
+    this.digitShadowColor,
     this.backgroundColor,
     required this.separatorWidth,
     this.separatorColor,
@@ -51,6 +52,7 @@ class FlipClockBuilder {
   ///
   /// Defaults to colorScheme.onPrimary
   final Color? digitColor;
+  final Color? digitShadowColor;
 
   /// Digit panel color (background color).
   ///
@@ -166,6 +168,14 @@ class FlipClockBuilder {
             fontSize: digitSize,
             color: digitColor ?? Theme.of(context).colorScheme.onPrimary,
             decoration: TextDecoration.none,
+            shadows: [
+              Shadow(
+                color:
+                    digitShadowColor ?? Theme.of(context).colorScheme.onPrimary,
+                blurRadius: 1,
+                offset: const Offset(1, 1),
+              )
+            ],
           ),
         ),
       );
