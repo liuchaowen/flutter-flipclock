@@ -1,6 +1,8 @@
 import 'package:flip_board/flip_clock.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_flipclock/hex_color.dart';
 import 'package:flutter_flipclock/setting_page.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get_storage/get_storage.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,25 +28,26 @@ class _HomePageState extends State<HomePage> {
   void initData() {
     int? bgColor = box.read('bgColor');
     if (bgColor != null) {
-      _bgColor = Color(bgColor);
+      _bgColor = HexColor(bgColor.toRadixString(16));
     } else {
       box.write('bgColor', _bgColor.value);
     }
     int? digitalColor = box.read('digitalColor');
+    print(digitalColor);
     if (digitalColor != null) {
-      _digitalColor = Color(digitalColor);
+      _digitalColor = HexColor(digitalColor.toRadixString(16));
     } else {
       box.write('digitalColor', _digitalColor.value);
     }
     int? digitalBgColor = box.read('digitalBgColor');
     if (digitalBgColor != null) {
-      _digitalBgColor = Color(digitalBgColor);
+      _digitalBgColor = HexColor(digitalBgColor.toRadixString(16));
     } else {
       box.write('digitalBgColor', _digitalBgColor.value);
     }
     int? digitalShadowColor = box.read('digitalShadowColor');
     if (digitalShadowColor != null) {
-      _digitalShadowColor = Color(digitalShadowColor);
+      _digitalShadowColor = HexColor(digitalShadowColor.toRadixString(16));
     } else {
       box.write('digitalShadowColor', _digitalShadowColor.value);
     }
@@ -70,10 +73,11 @@ class _HomePageState extends State<HomePage> {
         final itemHeight = screenHeight - 30 * 2;
         return GestureDetector(
           onLongPress: () {
-            debugPrint('long press');
             Navigator.push(context, MaterialPageRoute(builder: (_) {
               return const SettingPage();
-            })).then((value) => initData());
+            })).then((value) {
+              Phoenix.rebirth(context);
+            });
           },
           child: Container(
             constraints:

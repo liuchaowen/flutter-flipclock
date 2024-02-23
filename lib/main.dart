@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_flipclock/home_page.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:get_storage/get_storage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,8 +12,13 @@ void main() {
       .then((_) {
     //隐藏Android底部的虚拟返回键与顶部状态栏
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-    Future.delayed(const Duration(seconds: 2), () {
-      runApp(const MyApp());
+    Future.delayed(const Duration(seconds: 2), () async {
+      await GetStorage.init();
+      runApp(
+        Phoenix(
+          child: const MyApp(),
+        ),
+      );
     });
   });
 }

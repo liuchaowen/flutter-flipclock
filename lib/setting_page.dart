@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:flutter_flipclock/hex_color.dart';
 import 'package:get_storage/get_storage.dart';
 
 class SettingPage extends StatefulWidget {
@@ -27,16 +28,17 @@ class _SettingPageState extends State<SettingPage> {
     int? digitalBgColor = box.read('digitalBgColor');
     int? digitalShadowColor = box.read('digitalShadowColor');
     if (bgColor != null) {
-      _currentBgColor = Color(bgColor);
+      _currentBgColor = HexColor(bgColor.toRadixString(16));
     }
     if (digitalColor != null) {
-      _currentDigitalColor = Color(digitalColor);
+      _currentDigitalColor = HexColor(digitalColor.toRadixString(16));
     }
     if (digitalBgColor != null) {
-      _currentDigitalBgColor = Color(digitalBgColor);
+      _currentDigitalBgColor = HexColor(digitalBgColor.toRadixString(16));
     }
     if (digitalShadowColor != null) {
-      _currentDigitalShadowColor = Color(digitalShadowColor);
+      _currentDigitalShadowColor =
+          HexColor(digitalShadowColor.toRadixString(16));
     }
     setState(() {});
     super.initState();
@@ -170,7 +172,9 @@ class _SettingPageState extends State<SettingPage> {
             ElevatedButton(
               child: const Text('确定'),
               onPressed: () {
-                setState(() => _currentBgColor = _pickerBgColor);
+                setState(() {
+                  _currentBgColor = _pickerBgColor;
+                });
                 box.write('bgColor', _currentBgColor.value);
                 Navigator.of(context).pop();
               },
@@ -232,8 +236,10 @@ class _SettingPageState extends State<SettingPage> {
             ElevatedButton(
               child: const Text('确定'),
               onPressed: () {
-                setState(() => _currentDigitalBgColor = _pickerDigitalBgColor);
-                box.write('digitalColor', _currentDigitalBgColor.value);
+                setState(() {
+                  _currentDigitalBgColor = _pickerDigitalBgColor;
+                });
+                box.write('digitalBgColor', _currentDigitalBgColor.value);
                 Navigator.of(context).pop();
               },
             ),
@@ -263,8 +269,9 @@ class _SettingPageState extends State<SettingPage> {
             ElevatedButton(
               child: const Text('确定'),
               onPressed: () {
-                setState(() =>
-                    _currentDigitalShadowColor = _pickerDigitalShadowColor);
+                setState(() {
+                  _currentDigitalShadowColor = _pickerDigitalShadowColor;
+                });
                 box.write(
                     'digitalShadowColor', _currentDigitalShadowColor.value);
                 Navigator.of(context).pop();
