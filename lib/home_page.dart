@@ -33,7 +33,6 @@ class _HomePageState extends State<HomePage> {
       box.write('bgColor', _bgColor.value);
     }
     int? digitalColor = box.read('digitalColor');
-    print(digitalColor);
     if (digitalColor != null) {
       _digitalColor = HexColor(digitalColor.toRadixString(16));
     } else {

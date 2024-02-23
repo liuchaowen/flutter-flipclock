@@ -18,8 +18,8 @@ class _SettingPageState extends State<SettingPage> {
   Color _currentDigitalColor = Colors.white;
   Color _pickerDigitalBgColor = Colors.black;
   Color _currentDigitalBgColor = Colors.black;
-  Color _pickerDigitalShadowColor = Colors.pink[100]!;
-  Color _currentDigitalShadowColor = Colors.pink[100]!;
+  Color _pickerDigitalShadowColor = Colors.pink;
+  Color _currentDigitalShadowColor = Colors.pink;
 
   @override
   void initState() {
@@ -49,6 +49,16 @@ class _SettingPageState extends State<SettingPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("设置"),
+        actions: <Widget>[
+          TextButton(
+            onPressed: onSetDefault,
+            child: const Row(
+              children: [
+                Text('重置默认'),
+              ],
+            ),
+          )
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -281,5 +291,17 @@ class _SettingPageState extends State<SettingPage> {
         );
       },
     );
+  }
+
+  void onSetDefault() {
+    _currentBgColor = Colors.grey;
+    _currentDigitalColor = Colors.white;
+    _currentDigitalBgColor = Colors.black;
+    _currentDigitalShadowColor = Colors.pink;
+    box.write('bgColor', _currentBgColor.value);
+    box.write('digitalColor', _currentDigitalColor.value);
+    box.write('digitalBgColor', _currentDigitalBgColor.value);
+    box.write('digitalShadowColor', _currentDigitalShadowColor.value);
+    setState(() {});
   }
 }
